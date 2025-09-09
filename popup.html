@@ -1,0 +1,74 @@
+/ popup.html
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { width: 400px; padding: 20px; }
+    .field { margin-bottom: 10px; }
+    label { display: block; font-weight: bold; margin-bottom: 5px; }
+    input, textarea { width: 100%; padding: 5px; border: 1px solid #ccc; }
+    button { background: #4CAF50; color: white; padding: 10px; border: none; cursor: pointer; width: 100%; margin-top: 10px; }
+    button:hover { background: #45a049; }
+    .status { margin-top: 10px; padding: 10px; display: none; }
+    .success { background: #dff0d8; color: #3c763d; border: 1px solid #d6e9c6; }
+    .error { background: #f2dede; color: #a94442; border: 1px solid #ebccd1; }
+    .config { border-top: 1px solid #eee; margin-top: 20px; padding-top: 20px; }
+  </style>
+</head>
+<body>
+  <h3>ZocDoc Provider Extractor</h3>
+  
+  <!-- Configuration Section -->
+  <div class="config">
+    <h4>Configuration</h4>
+    <div class="field">
+      <label>Airtable Token:</label>
+      <input type="password" id="airtableToken" placeholder="pat...">
+    </div>
+    <div class="field">
+      <label>Base ID:</label>
+      <input type="text" id="baseId" placeholder="app...">
+    </div>
+    <div class="field">
+      <label>Table Name:</label>
+      <input type="text" id="tableName" value="Providers">
+    </div>
+    <button id="saveConfig">Save Configuration</button>
+  </div>
+
+  <!-- Data Extraction Section -->
+  <div id="extractionSection" style="display: none;">
+    <h4>Extracted Data</h4>
+    <div class="field">
+      <label>Provider Name:</label>
+      <input type="text" id="providerName">
+    </div>
+    <div class="field">
+      <label>NPI Number:</label>
+      <input type="text" id="npiNumber">
+    </div>
+    <div class="field">
+      <label>License/Credentials:</label>
+      <input type="text" id="credentials">
+    </div>
+    <div class="field">
+      <label>Phone:</label>
+      <input type="text" id="phone">
+    </div>
+    <div class="field">
+      <label>Specialty:</label>
+      <input type="text" id="specialty">
+    </div>
+    <div class="field">
+      <label>Insurance:</label>
+      <textarea id="insurance" rows="2"></textarea>
+    </div>
+    <button id="extractData">Extract from Page</button>
+    <button id="submitToAirtable">Submit to Airtable</button>
+  </div>
+
+  <div id="status" class="status"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
